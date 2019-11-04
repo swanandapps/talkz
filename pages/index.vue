@@ -7,8 +7,8 @@
 <p>START</p>
 
 </div>
-<div id="quote_div">
-<p v-if="this.startgame">
+<div v-if="this.startgame" id="quote_div">
+<p >
 {{quote.text}}
   </p>
 </div>
@@ -37,7 +37,7 @@ import quotes from '../assets/enterpreneur-quotes.json'
 import Shake from 'shake.js'
 import db from '../components/firebaseinit'
 import {ScratchCard, SCRATCH_TYPE} from 'scratchcard-js'
-
+import mic from '../assets/download.jpeg'
 
 export default {
   name: "my-component",
@@ -60,31 +60,14 @@ startgame:false
 var random= Math.floor(Math.random() * Math.floor(324));
 this.quote=quotes[random];
 
-anime({
-  targets: '#show_card',
-  translateZ: {
-    value: 25,
-    duration: 800
-  },
-  rotate: {
-    value: 360,
-    duration: 1800,
-    easing: 'easeInOutSine'
-  },
-  scale: {
-    value: 2,
-    duration: 1600,
-    delay: 800,
-    easing: 'easeInOutQuart'
-  },
-  delay: 250 // All properties except 'scale' inherit 250ms delay
-});
 
   },
 
   methods: {
     
     start_game: function(){
+
+      
 var tempthis=this
 var startb= document.getElementById('start_button')
 
@@ -93,7 +76,7 @@ setTimeout(function(){
   startb.style.display='none';
   
  test()
-},400)
+},200)
 
 function test()
 {
@@ -104,9 +87,15 @@ function test()
  var shakeEvent = new Shake({threshold: 15});
     shakeEvent.start();
     window.addEventListener('shake', function(){
-        alert("Shaked");
+        
       
-      document.getElementById('quote_div').style.display='none'
+      document.getElementById('quote_div').style.display='none';
+
+
+
+
+startanimation()
+
 
     }, false);
 
@@ -119,14 +108,16 @@ function test()
     if(!("ondevicemotion" in window)){alert("Not Supported");}
 
 
+function startanimation()
+{
 
-/*const scContainer = document.getElementById('js--sc--container')
+const scContainer = document.getElementById('js--sc--container')
 const sc = new ScratchCard('#js--sc--container', {
   scratchType: SCRATCH_TYPE.CIRCLE,
   containerWidth: scContainer.offsetWidth,
   containerHeight: 300,
   
-  
+   imageForwardSrc:mic,
   htmlBackground: '<p class="test"><strong>Hello i am HTML content !</strong></p>',
   clearZoneRadius: 35,
   nPoints: 3,
@@ -138,6 +129,28 @@ const sc = new ScratchCard('#js--sc--container', {
   }
 })
  
+
+anime({
+  targets: '#js--sc--container',
+  translateZ: {
+    value: 5,
+    duration: 800
+  },
+  rotate: {
+    value: 360,
+    duration: 1800,
+    easing: 'easeInOutSine'
+  },
+  scale: {
+    value: 1.5,
+    duration: 1600,
+    delay: 800,
+    easing: 'easeInOutQuart'
+  },
+  delay: 250 // All properties except 'scale' inherit 250ms delay
+});
+
+
 // Init
 sc.init().then(() => {
   sc.canvas.addEventListener('scratch.move', () => {
@@ -149,7 +162,7 @@ sc.init().then(() => {
   alert(error.message);
 });
 
-*/
+}
     }
 
 
@@ -218,11 +231,15 @@ transition:3s ease
 }
 
 .sc__wrapper {
+  
   display: block;
   width: 100%;
   height: 300px;
   max-width: 300px;
   margin: 0 auto;
+  position: absolute;
+ 
+  
   
 }
 
@@ -230,10 +247,14 @@ transition:3s ease
 .sc__container {
   position: relative;
   overflow: hidden;
-  max-height: 300px;
-  max-width: 300px;
+  height: 280px;
+ width: 100%;
+ top: -50%
 }
+img{
 
+  background-size: contain
+}
 
 .sc__container > img {
   position: relative;
