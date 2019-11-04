@@ -83,7 +83,7 @@ function test()
 
   tempthis.startgame=true
 }
-startanimation()
+
  var shakeEvent = new Shake({threshold: 15});
     shakeEvent.start();
     window.addEventListener('shake', function(){
@@ -92,7 +92,7 @@ startanimation()
       document.getElementById('quote_div').style.display='none';
 
 
-
+startanimation()
 
 
 
