@@ -32,6 +32,7 @@
 
 <script>
 import anime from 'animejs/lib/anime.es.js';
+import Shake from 'shake.js'
 import db from '../components/firebaseinit'
 import {ScratchCard, SCRATCH_TYPE} from 'scratchcard-js'
 import img1 from '../assets/PACT.jpeg'
@@ -92,15 +93,20 @@ sc.init().then(() => {
     start_game: function(){
 
 
-window.ondevicemotion = function(event) {
+ var shakeEvent = new Shake({threshold: 15});
+    shakeEvent.start();
+    window.addEventListener('shake', function(){
+        alert("Shaked");
+    }, false);
 
-this.x = event.accelerationIncludingGravity.x;  
-this.y = event.accelerationIncludingGravity.y;  
-this.z = event.accelerationIncludingGravity.z; 
-
-
-
+    //stop listening
+    function stopShake(){
+        shakeEvent.stop();
     }
+
+    //check if shake is supported or not.
+    if(!("ondevicemotion" in window)){alert("Not Supported");}
+
 
     }
   },

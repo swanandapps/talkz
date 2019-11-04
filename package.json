@@ -19,6 +19,7 @@
     "firestore": "^1.1.6",
     "nuxt": "^2.0.0",
     "scratchcard-js": "^1.4.7",
+    "shake.js": "^1.2.2",
     "vue-animejs": "^2.1.1"
   },
   "devDependencies": {
