@@ -92,8 +92,8 @@ function test()
       document.getElementById('quote_div').style.display='none';
 
 
-startanimation()
 
+startanimation()
 
 
 
@@ -119,7 +119,7 @@ const sc = new ScratchCard('#js--sc--container', {
   
    imageForwardSrc:mic,
   htmlBackground: '<p class="test"><strong>Hello i am HTML content !</strong></p>',
-  clearZoneRadius: 35,
+  clearZoneRadius: 50,
   nPoints: 3,
   pointSize: 1,
   callback: function () {
@@ -238,7 +238,7 @@ transition:3s ease
   max-width: 300px;
   margin: 0 auto;
   position: absolute;
- 
+ top: 20%;
   
   
 }
