@@ -8,7 +8,7 @@
 
 <div>
 <h1>
-  {{this.x}}{{this.y}}{{this.z}}
+{{text}}
   </h1>
 </div>
 
@@ -43,13 +43,16 @@ export default {
 
 x:'',
 y:'',
-z:''
+z:'',
+text:''
 
     };
   },
   mounted() {
 
 //console.log(db)
+
+this.text=window.ondevicemotion
 
 
 const scContainer = document.getElementById('js--sc--container')
