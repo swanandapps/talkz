@@ -6,14 +6,15 @@
 
 <p>START</p>
 
-<div>
-<h1>
-{{text}}
-  </h1>
+</div>
+<div id="quote_div">
+<p v-if="this.startgame">
+{{quote.text}}
+  </p>
 </div>
 
 
-<div class="sc__wrapper">
+<div  class="sc__wrapper">
   <!-- scratchcard -->
   <div id="js--sc--container" class="sc__container">
     <!-- background image insert here by scratchcard-js -->
@@ -23,7 +24,7 @@
   
 </div>
 
-</div>
+
  
 
 
@@ -32,11 +33,12 @@
 
 <script>
 import anime from 'animejs/lib/anime.es.js';
+import quotes from '../assets/enterpreneur-quotes.json'
 import Shake from 'shake.js'
 import db from '../components/firebaseinit'
 import {ScratchCard, SCRATCH_TYPE} from 'scratchcard-js'
-import img1 from '../assets/PACT.jpeg'
-import img2 from '../assets/1.png'
+
+
 export default {
   name: "my-component",
   data() {
@@ -45,23 +47,85 @@ export default {
 x:'',
 y:'',
 z:'',
-text:''
+quote:'',
+startgame:false
 
     };
   },
   mounted() {
 
 //console.log(db)
+//generate random math number
 
-this.text=window.ondevicemotion
+var random= Math.floor(Math.random() * Math.floor(324));
+this.quote=quotes[random];
+
+anime({
+  targets: '#show_card',
+  translateZ: {
+    value: 25,
+    duration: 800
+  },
+  rotate: {
+    value: 360,
+    duration: 1800,
+    easing: 'easeInOutSine'
+  },
+  scale: {
+    value: 2,
+    duration: 1600,
+    delay: 800,
+    easing: 'easeInOutQuart'
+  },
+  delay: 250 // All properties except 'scale' inherit 250ms delay
+});
+
+  },
+
+  methods: {
+    
+    start_game: function(){
+var tempthis=this
+var startb= document.getElementById('start_button')
+
+setTimeout(function(){
+
+  startb.style.display='none';
+  
+ test()
+},400)
+
+function test()
+{
+
+  tempthis.startgame=true
+}
+
+ var shakeEvent = new Shake({threshold: 15});
+    shakeEvent.start();
+    window.addEventListener('shake', function(){
+        alert("Shaked");
+      
+      document.getElementById('quote_div').style.display='none'
+
+    }, false);
+
+    //stop listening
+    function stopShake(){
+        shakeEvent.stop();
+    }
+
+    //check if shake is supported or not.
+    if(!("ondevicemotion" in window)){alert("Not Supported");}
 
 
-const scContainer = document.getElementById('js--sc--container')
+
+/*const scContainer = document.getElementById('js--sc--container')
 const sc = new ScratchCard('#js--sc--container', {
   scratchType: SCRATCH_TYPE.CIRCLE,
   containerWidth: scContainer.offsetWidth,
   containerHeight: 300,
-  imageForwardSrc: img1,
+  
   
   htmlBackground: '<p class="test"><strong>Hello i am HTML content !</strong></p>',
   clearZoneRadius: 35,
@@ -85,36 +149,31 @@ sc.init().then(() => {
   alert(error.message);
 });
 
+*/
+    }
 
-  },
 
-  methods: {
+
     
-    start_game: function(){
-
-
- var shakeEvent = new Shake({threshold: 15});
-    shakeEvent.start();
-    window.addEventListener('shake', function(){
-        alert("Shaked");
-    }, false);
-
-    //stop listening
-    function stopShake(){
-        shakeEvent.stop();
-    }
-
-    //check if shake is supported or not.
-    if(!("ondevicemotion" in window)){alert("Not Supported");}
-
-
-    }
   },
 }
 </script>
 
 <style >
 
+
+#quote_div{
+
+
+  	
+	margin: auto;
+    text-align: center;
+    font-family: monospace;
+    margin-top: 100%;
+    padding: 3% 3%;
+
+
+}
 #start_button{
 
 width: 130px;
@@ -133,9 +192,17 @@ width: 130px;
 border: linear-gradient(to right, #fd746c, #ff9068);;
 
 
-border-radius: 50%
+border-radius: 50%;
+box-shadow: #fd746c 
 
 
+}
+
+#start_button:active{
+
+
+transform:scale(0.1);
+transition:3s ease
 }
 
 #start_button p
