@@ -83,7 +83,7 @@ function test()
 
   tempthis.startgame=true
 }
-
+startanimation()
  var shakeEvent = new Shake({threshold: 15});
     shakeEvent.start();
     window.addEventListener('shake', function(){
@@ -94,7 +94,7 @@ function test()
 
 
 
-startanimation()
+
 
 
     }, false);
@@ -249,7 +249,7 @@ transition:3s ease
   overflow: hidden;
   height: 280px;
  width: 100%;
- top: -50%
+ 
 }
 img{
 
