@@ -14,7 +14,7 @@
   </p>
 
   </div>
-<div v-if="this.shaked==true" style="margin-top:40%">
+<div style="margin-top:40%">
   <h1 style="font-family:fantasy">Today's Topic</h1>
   <p id="today_topic" >
   
@@ -192,7 +192,7 @@ var random_topic=Math.floor(Math.random()*Math.floor(this.topic.length))
 this.today_topic=this.topic[random_topic];
 
 
-
+document.getElementById('today_topic').style.display='none'
 
   },
 
@@ -225,7 +225,7 @@ function test()
       document.getElementById('quote_div').style.display='none';
 
 
-//document.getElementById('today_topic').style.display='block'
+document.getElementById('today_topic').style.display='block'
 
 
 
