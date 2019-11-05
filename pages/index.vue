@@ -7,10 +7,13 @@
 <p>START</p>
 
 </div>
-<div v-if="this.shaked=false" id="quote_div">
+<div>
+<div v-if="this.startgame &&this.shaked==false" id="quote_div">
 <p >
 {{quote.text}}
   </p>
+
+  </div>
 <div v-if="this.shaked" style="margin-top:40%">
   <h1 style="font-family:fantasy">Today's Topic</h1>
   <p id="today_topic" >
