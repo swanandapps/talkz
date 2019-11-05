@@ -14,7 +14,7 @@
   </p>
 
   </div>
-<div v-if="this.shaked" style="margin-top:40%">
+<div v-if="this.shaked==true" style="margin-top:40%">
   <h1 style="font-family:fantasy">Today's Topic</h1>
   <p id="today_topic" >
   
@@ -48,7 +48,7 @@ y:'',
 z:'',
 quote:'',
 startgame:false,
-shaked:false,
+shaked:true,
 today_topic:'',
 topic:[
 
@@ -221,11 +221,11 @@ function test()
     shakeEvent.start();
     window.addEventListener('shake', function(){
         
-      this.shaked=true;
+      this.shaked=false;
       document.getElementById('quote_div').style.display='none';
 
 
-document.getElementById('today_topic').style.display='block'
+//document.getElementById('today_topic').style.display='block'
 
 
 
@@ -240,7 +240,7 @@ document.getElementById('today_topic').style.display='block'
     //check if shake is supported or not.
     if(!("ondevicemotion" in window)){alert("Not Supported");}
 
-startanimation()
+//startanimation()
 function startanimation()
 {
 
