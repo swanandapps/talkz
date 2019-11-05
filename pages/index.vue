@@ -11,7 +11,7 @@
 <p >
 {{quote.text}}
   </p>
-<div v-if="this.startgame" style="margin-top:40%">
+<div v-if="this.showtopic" style="margin-top:40%">
   <h1 style="font-family:fantasy">Today's Topic</h1>
   <p id="today_topic" >
   
@@ -28,12 +28,10 @@
 </template>
 
 <script>
-import anime from 'animejs/lib/anime.es.js';
+
 import quotes from '../assets/enterpreneur-quotes.json'
 import Shake from 'shake.js'
-import db from '../components/firebaseinit'
-import {ScratchCard, SCRATCH_TYPE} from 'scratchcard-js'
-import mic from '../assets/download.jpeg'
+
 
 export default {
   name: "my-component",
@@ -45,6 +43,7 @@ y:'',
 z:'',
 quote:'',
 startgame:false,
+showtopic:false,
 today_topic:'',
 topic:[
 
@@ -219,7 +218,7 @@ function test()
     shakeEvent.start();
     window.addEventListener('shake', function(){
         
-      
+      this.showtopic=true
       document.getElementById('quote_div').style.display='none';
 
 
@@ -238,7 +237,7 @@ function test()
     //check if shake is supported or not.
     if(!("ondevicemotion" in window)){alert("Not Supported");}
 
-startanimation()
+//startanimation()
 function startanimation()
 {
 
