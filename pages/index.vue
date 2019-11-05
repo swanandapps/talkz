@@ -2,16 +2,16 @@
   <div>
     
 
-<div @click="start_game" id="start_button">
+<div v-if="this.startgame==false" @click="start_game" id="start_button">
 
 <p>START</p>
 
 </div>
-<div v-if="this.startgame" id="quote_div">
+<div v-if="this.shaked=false" id="quote_div">
 <p >
 {{quote.text}}
   </p>
-<div style="margin-top:40%">
+<div v-if="this.shaked" style="margin-top:40%">
   <h1 style="font-family:fantasy">Today's Topic</h1>
   <p id="today_topic" >
   
@@ -45,6 +45,7 @@ y:'',
 z:'',
 quote:'',
 startgame:false,
+shaked:false,
 today_topic:'',
 topic:[
 
@@ -198,11 +199,10 @@ this.today_topic=this.topic[random_topic];
 
       
 var tempthis=this
-var startb= document.getElementById('start_button')
+
 
 setTimeout(function(){
 
-  startb.style.display='none';
   
  test()
 },200)
@@ -213,12 +213,12 @@ function test()
   tempthis.startgame=true
 }
 
-document.getElementById('today_topic').style.display='none';
+//document.getElementById('today_topic').style.display='none';
  var shakeEvent = new Shake({threshold: 15});
     shakeEvent.start();
     window.addEventListener('shake', function(){
         
-      
+      this.shaked=true;
       document.getElementById('quote_div').style.display='none';
 
 
