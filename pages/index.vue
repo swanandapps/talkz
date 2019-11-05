@@ -7,14 +7,11 @@
 <p>START</p>
 
 </div>
-<div>
-<div v-if="this.startgame &&this.shaked==false" id="quote_div">
+<div v-if="this.startgame" id="quote_div">
 <p >
 {{quote.text}}
   </p>
-
-  </div>
-<div style="margin-top:40%">
+<div v-if="this.startgame" style="margin-top:40%">
   <h1 style="font-family:fantasy">Today's Topic</h1>
   <p id="today_topic" >
   
@@ -48,7 +45,6 @@ y:'',
 z:'',
 quote:'',
 startgame:false,
-shaked:true,
 today_topic:'',
 topic:[
 
@@ -192,7 +188,7 @@ var random_topic=Math.floor(Math.random()*Math.floor(this.topic.length))
 this.today_topic=this.topic[random_topic];
 
 
-document.getElementById('today_topic').style.display='none'
+
 
   },
 
@@ -206,6 +202,8 @@ var tempthis=this
 
 setTimeout(function(){
 
+
+
   
  test()
 },200)
@@ -216,16 +214,16 @@ function test()
   tempthis.startgame=true
 }
 
-//document.getElementById('today_topic').style.display='none';
+
  var shakeEvent = new Shake({threshold: 15});
     shakeEvent.start();
     window.addEventListener('shake', function(){
         
-      this.shaked=false;
+      
       document.getElementById('quote_div').style.display='none';
 
 
-document.getElementById('today_topic').style.display='block'
+//document.getElementById('today_topic').style.display='block'
 
 
 
@@ -240,7 +238,7 @@ document.getElementById('today_topic').style.display='block'
     //check if shake is supported or not.
     if(!("ondevicemotion" in window)){alert("Not Supported");}
 
-//startanimation()
+startanimation()
 function startanimation()
 {
 
