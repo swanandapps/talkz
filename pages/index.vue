@@ -11,7 +11,7 @@
 <p >
 {{quote.text}}
   </p>
-<div v-if="this.startgame" style="margin-top:40%">
+<div v-if="this.startgame" id="topic-div">
   <h1 style="font-family:fantasy">Today's Topic</h1>
   <p id="today_topic" >
   
@@ -21,11 +21,22 @@
 </div>
 
 
- 
-
-
+ <div id="footer">
+ <p>Talkz by Swanand</p>
+</div>
   </div>
 </template>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-151683991-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-151683991-1');
+</script>
+
 
 <script>
 
@@ -199,6 +210,8 @@ this.today_topic=this.topic[random_topic];
 var tempthis=this
 
 
+
+
 setTimeout(function(){
 
 
@@ -215,37 +228,6 @@ function test()
 
 
  
-//startanimation()
-function startanimation()
-{
-
-
- 
-
-anime({
-  targets: '#today_topic',
-  translateZ: {
-    value: 5,
-    duration: 800
-  },
-  rotate: {
-    value: 360,
-    duration: 1800,
-    easing: 'easeInOutSine'
-  },
-  scale: {
-    value: 1.5,
-    duration: 1600,
-    delay: 800,
-    easing: 'easeInOutQuart'
-  },
-  delay: 250 // All properties except 'scale' inherit 250ms delay
-});
-
-
-
-
-}
     }
 
 
@@ -257,10 +239,22 @@ anime({
 
 <style >
 
+
+#footer{
+
+   position:absolute;                  /* added */
+   bottom:3%;                           /* added */
+   left:33%;   
+   text-align:center;
+   background: -webkit-linear-gradient(#444338, #38ef7d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+}
 #today_topic{
 
 
- margin-top: 10%;
+
   font-size: 150%;
   font-weight: bold;
   font-family: 'Courier New', Courier, monospace;
@@ -270,7 +264,10 @@ anime({
   -webkit-text-fill-color: transparent;
 }
 
+#topic-div{
 
+  margin-top: 4%;
+}
 
 #quote_div{
 
@@ -279,7 +276,7 @@ anime({
 	margin: auto;
     text-align: center;
     font-family: monospace;
-    margin-top: 40%;
+    margin-top: 20%;
     padding: 3% 3%;
 
 
@@ -327,57 +324,92 @@ transition:3s ease
 
 }
 
-.sc__wrapper {
-  
-  display: block;
-  width: 100%;
-  height: 300px;
-  max-width: 300px;
-  margin: 0 auto;
-  position: absolute;
 
-  
-  
+
+@media screen and (max-width: 480px)
+
+{
+#topic-div{
+
+  margin-top: 40%;
 }
 
-
-.sc__container {
-  position: relative;
-  overflow: hidden;
-  height: 280px;
- width: 100%;
- 
-}
-img{
-
-  background-size: contain
-}
-
-.sc__container > img {
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
-}
-
-.sc__container canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
-}
+#today_topic{
 
 
-.sc__infos {
-  text-align: center;
-  height: 40px;
-  line-height: 40px;
-  margin-top: 5px;
+ margin-top: 10%;
+  font-size: 150%;
   font-weight: bold;
-  font-size: 130%;
+  font-family: 'Courier New', Courier, monospace;
+ 
+  background: -webkit-linear-gradient(rgb(46, 45, 45), rgb(200, 106, 51));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
-     
+
+
+
+#quote_div{
+
+
+  	
+	margin: auto;
+    text-align: center;
+    font-family: monospace;
+    margin-top: 37%;
+    padding: 3% 3%;
+
+
+}
+#start_button{
+
+width: 130px;
+	height: 130px;
+  background: linear-gradient(to right, #fd746c, #ff9068); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+;
+	
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+  	
+	margin: auto;
+
+border: linear-gradient(to right, #fd746c, #ff9068);;
+
+
+border-radius: 50%;
+box-shadow: #fd746c 
+
+
+}
+
+#start_button:active{
+
+
+transform:scale(0.1);
+transition:3s ease
+}
+
+#start_button p
+{
+
+
+  text-align: center;
+ 
+  	
+	margin-top: 40%;
+  font-size: 140%
+
+}
+
+
+
+
+}
+
+
+
 
 </style>

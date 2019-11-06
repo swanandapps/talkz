@@ -1,32 +1,29 @@
 {
-  "name": "talkz",
-  "version": "1.0.0",
-  "description": "Practise Impromptu Talks",
-  "author": "swanandk",
-  "private": true,
-  "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
-  },
-  "dependencies": {
-    "@firebase/firestore": "^1.6.4",
-    "@nuxtjs/pwa": "^3.0.0-0",
-    "animejs": "^3.1.0",
-    "firebase": "^7.2.3",
-    "firestore": "^1.1.6",
-    "nuxt": "^2.0.0",
-    "scratchcard-js": "^1.4.7",
-    "shake.js": "^1.2.2",
-    "vue-animejs": "^2.1.1"
-  },
-  "devDependencies": {
-    "@nuxtjs/eslint-config": "^1.0.1",
-    "@nuxtjs/eslint-module": "^1.0.0",
-    "babel-eslint": "^10.0.1",
-    "eslint": "^6.1.0",
-    "eslint-plugin-nuxt": ">=0.4.2"
-  }
+    "name": "Talkz",
+    "version": "1.0.0",
+    "description": "Practise Impromptu Talks",
+    "author": "swanandk",
+    "private": true,
+    "scripts": {
+        "dev": "nuxt",
+        "build": "nuxt build",
+        "start": "nuxt start",
+        "generate": "nuxt generate",
+        "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
+    },
+    "dependencies": {
+
+        "@nuxtjs/pwa": "^3.0.0-0",
+
+
+        "nuxt": "^2.0.0"
+
+    },
+    "devDependencies": {
+        "@nuxtjs/eslint-config": "^1.0.1",
+        "@nuxtjs/eslint-module": "^1.0.0",
+        "babel-eslint": "^10.0.1",
+        "eslint": "^6.1.0",
+        "eslint-plugin-nuxt": ">=0.4.2"
+    }
 }
