@@ -244,7 +244,7 @@ function test()
 
    position:absolute;                  /* added */
    bottom:3%;                           /* added */
-   left:33%;   
+   left:46.5%;   
    text-align:center;
    background: -webkit-linear-gradient(#444338, #38ef7d);
   -webkit-background-clip: text;
@@ -276,7 +276,7 @@ function test()
 	margin: auto;
     text-align: center;
     font-family: monospace;
-    margin-top: 20%;
+    margin-top: 13%;
     padding: 3% 3%;
 
 
@@ -329,6 +329,17 @@ transition:3s ease
 @media screen and (max-width: 480px)
 
 {
+  #footer{
+
+   position:absolute;                  /* added */
+   bottom:3%;                           /* added */
+   left:33%;   
+   text-align:center;
+   background: -webkit-linear-gradient(#444338, #38ef7d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+}
 #topic-div{
 
   margin-top: 40%;
